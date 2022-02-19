@@ -7,6 +7,8 @@
 
 <script>
 import Products from "./components/Products.vue"
+import './assets/tailwind.css'
+import './assets/output.css'
 export default {
     name: 'App',
     components: {
@@ -21,8 +23,4 @@ export default {
 </script>
 
 <style>
-    body {
-        background-color:tan;
-    }
-
 </style>
