@@ -41,6 +41,7 @@
           :src="post.image"
           :alt="post.name"
           class="w-full h-full object-cover"
+          @error="replace"
         />
         <div
           class="
@@ -70,6 +71,7 @@
 </template>
 
 <script>
+import * as faker from 'faker';
 import axios from "axios";
 export default {
   name: "Products",
@@ -86,7 +88,6 @@ export default {
     categories() {
       let categoryList = ["All"];
       this.posts.forEach((product) => {
-        console.log("fasd");
         if (!categoryList.includes(product.catname)) {
           categoryList.push(product.catname);
         }
@@ -110,6 +111,9 @@ export default {
           console.log(error);
         });
     },
+    replace(e) {
+        e.target.src = `${faker.image.image()}`
+    }
   },
   mounted() {
     this.changePage(1);
